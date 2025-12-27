@@ -4,8 +4,8 @@ module PolarisForm
       @template.s_checkbox_tag(@object_name, method, objectify_options(options))
     end
 
-    def s_choice_list(method, options = {})
-      @template.s_choice_list_tag(@object_name, method, objectify_options(options))
+    def s_choice_list(method, options = {}, &block)
+      @template.s_choice_list_tag(@object_name, method, objectify_options(options), &block)
     end
 
     def s_color_field(method, options = {})
@@ -48,8 +48,8 @@ module PolarisForm
       @template.s_search_field_tag(@object_name, method, objectify_options(options))
     end
 
-    def s_select(method, options = {})
-      @template.s_select_tag(@object_name, method, objectify_options(options))
+    def s_select(method, options = {}, &block)
+      @template.s_select_tag(@object_name, method, objectify_options(options), &block)
     end
 
     def s_switch(method, options = {})

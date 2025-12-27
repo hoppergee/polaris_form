@@ -33,102 +33,102 @@ module PolarisForm
     end
 
     def s_checkbox_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+      camelized_options = Utils.camelize_polaris_options(options)
       PolarisForm::Tag::Checkbox.new(object_name, method, self, camelized_options).render
     end
 
-    def s_choice_list_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
-      PolarisForm::Tag::ChoiceList.new(object_name, method, self, camelized_options).render
+    def s_choice_list_tag(object_name, method, options = {}, &block)
+      camelized_options = Utils.camelize_polaris_options(options)
+      PolarisForm::Tag::ChoiceList.new(object_name, method, self, camelized_options).render(&block)
     end
 
-    def s_choice_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
-      PolarisForm::Tag::Choice.new(object_name, method, self, camelized_options).render
+    def s_choice_tag(options = {}, &block)
+      camelized_options = Utils.camelize_polaris_options(options)
+      PolarisForm::Tag::Choice.new(nil, nil, self, camelized_options).render(&block)
     end
 
     def s_color_field_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+      camelized_options = Utils.camelize_polaris_options(options)
       PolarisForm::Tag::ColorField.new(object_name, method, self, camelized_options).render
     end
 
     def s_color_picker_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+      camelized_options = Utils.camelize_polaris_options(options)
       PolarisForm::Tag::ColorPicker.new(object_name, method, self, camelized_options).render
     end
 
     def s_date_field_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+      camelized_options = Utils.camelize_polaris_options(options)
       PolarisForm::Tag::DateField.new(object_name, method, self, camelized_options).render
     end
 
     def s_date_picker_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+      camelized_options = Utils.camelize_polaris_options(options)
       PolarisForm::Tag::DatePicker.new(object_name, method, self, camelized_options).render
     end
 
     def s_drop_zone_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+      camelized_options = Utils.camelize_polaris_options(options)
       PolarisForm::Tag::DropZone.new(object_name, method, self, camelized_options).render
     end
 
     def s_email_field_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+      camelized_options = Utils.camelize_polaris_options(options)
       PolarisForm::Tag::EmailField.new(object_name, method, self, camelized_options).render
     end
 
     def s_money_field_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+      camelized_options = Utils.camelize_polaris_options(options)
       PolarisForm::Tag::MoneyField.new(object_name, method, self, camelized_options).render
     end
 
     def s_number_field_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+      camelized_options = Utils.camelize_polaris_options(options)
       PolarisForm::Tag::NumberField.new(object_name, method, self, camelized_options).render
     end
 
-    def s_option_group_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
-      PolarisForm::Tag::OptionGroup.new(object_name, method, self, camelized_options).render
+    def s_option_group_tag(options = {}, &block)
+      camelized_options = Utils.camelize_polaris_options(options)
+      PolarisForm::Tag::OptionGroup.new(nil, nil, self, camelized_options).render(&block)
     end
 
-    def s_option_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
-      PolarisForm::Tag::Option.new(object_name, method, self, camelized_options).render
+    def s_option_tag(options = {}, &block)
+      camelized_options = Utils.camelize_polaris_options(options)
+      PolarisForm::Tag::Option.new(nil, nil, self, camelized_options).render(&block)
     end
 
     def s_password_field_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+      camelized_options = Utils.camelize_polaris_options(options)
       PolarisForm::Tag::PasswordField.new(object_name, method, self, camelized_options).render
     end
 
     def s_search_field_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+      camelized_options = Utils.camelize_polaris_options(options)
       PolarisForm::Tag::SearchField.new(object_name, method, self, camelized_options).render
     end
 
-    def s_select_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
-      PolarisForm::Tag::Select.new(object_name, method, self, camelized_options).render
+    def s_select_tag(object_name, method, options = {}, &block)
+      camelized_options = Utils.camelize_polaris_options(options)
+      PolarisForm::Tag::Select.new(object_name, method, self, camelized_options).render(&block)
     end
 
     def s_switch_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+      camelized_options = Utils.camelize_polaris_options(options)
       PolarisForm::Tag::Switch.new(object_name, method, self, camelized_options).render
     end
 
     def s_text_area_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+      camelized_options = Utils.camelize_polaris_options(options)
       PolarisForm::Tag::TextArea.new(object_name, method, self, camelized_options).render
     end
 
     def s_text_field_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+      camelized_options = Utils.camelize_polaris_options(options)
       PolarisForm::Tag::TextField.new(object_name, method, self, camelized_options).render
     end
 
     def s_url_field_tag(object_name, method, options = {})
-      camelized_options = options.transform_keys { |key| key.to_s.camelize(:lower).to_sym }
+      camelized_options = Utils.camelize_polaris_options(options)
       PolarisForm::Tag::UrlField.new(object_name, method, self, camelized_options).render
     end
   end

@@ -1,9 +1,14 @@
 module PolarisForm
   module Tag
     class OptionGroup < Base
-      def render
+      def render(&block)
         options = @options.stringify_keys
-        content_tag("s-option-group", options)
+        content = if block_given?
+          @template_object.capture(&block)
+        else
+          nil
+        end
+        content_tag("s-option-group", content, options)
       end
     end
   end
