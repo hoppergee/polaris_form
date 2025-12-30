@@ -3,6 +3,7 @@ module PolarisForm
     class EmailField < Base
       def render
         options = @options.stringify_keys
+        options["value"] = options.fetch("value") { value_before_type_cast }
         add_default_name_and_id(options)
         empty_content_tag("s-email-field", options)
       end

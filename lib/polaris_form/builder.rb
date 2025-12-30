@@ -1,71 +1,71 @@
 module PolarisForm
   class Builder < ActionView::Helpers::FormBuilder
-    def s_checkbox(method, options = {})
-      @template.s_checkbox_tag(@object_name, method, objectify_options(options))
+    def s_checkbox(method, options = {}, checked_value = '1', unchecked_value = '0')
+      PolarisForm::Tag::Checkbox.new(@object_name, method, @template, checked_value, unchecked_value, objectify_options(options)).render
     end
 
-    def s_choice_list(method, options = {}, &block)
-      @template.s_choice_list_tag(@object_name, method, objectify_options(options), &block)
-    end
+    # def s_choice_list(method, options = {}, &block)
+    #   @template.s_choice_list_tag(@object_name, method, objectify_options(options), &block)
+    # end
 
     def s_color_field(method, options = {})
-      @template.s_color_field_tag(@object_name, method, objectify_options(options))
+      PolarisForm::Tag::ColorField.new(@object_name, method, @template, objectify_options(options)).render
     end
 
     def s_color_picker(method, options = {})
-      @template.s_color_picker_tag(@object_name, method, objectify_options(options))
+      PolarisForm::Tag::ColorPicker.new(@object_name, method, @template, objectify_options(options)).render
     end
 
     def s_date_field(method, options = {})
-      @template.s_date_field_tag(@object_name, method, objectify_options(options))
+      PolarisForm::Tag::DateField.new(@object_name, method, @template, objectify_options(options)).render
     end
 
     def s_date_picker(method, options = {})
-      @template.s_date_picker_tag(@object_name, method, objectify_options(options))
+      PolarisForm::Tag::DatePicker.new(@object_name, method, @template, objectify_options(options)).render
     end
 
     def s_drop_zone(method, options = {})
-      @template.s_drop_zone_tag(@object_name, method, objectify_options(options))
+      PolarisForm::Tag::DropZone.new(@object_name, method, @template, objectify_options(options)).render
     end
 
     def s_email_field(method, options = {})
-      @template.s_email_field_tag(@object_name, method, objectify_options(options))
+      PolarisForm::Tag::EmailField.new(@object_name, method, @template, objectify_options(options)).render
     end
 
     def s_money_field(method, options = {})
-      @template.s_money_field_tag(@object_name, method, objectify_options(options))
+      PolarisForm::Tag::MoneyField.new(@object_name, method, @template, objectify_options(options)).render
     end
 
     def s_number_field(method, options = {})
-      @template.s_number_field_tag(@object_name, method, objectify_options(options))
+      PolarisForm::Tag::NumberField.new(@object_name, method, @template, objectify_options(options)).render
     end
 
     def s_password_field(method, options = {})
-      @template.s_password_field_tag(@object_name, method, objectify_options(options))
+      PolarisForm::Tag::PasswordField.new(@object_name, method, @template, objectify_options(options)).render
     end
 
     def s_search_field(method, options = {})
-      @template.s_search_field_tag(@object_name, method, objectify_options(options))
+      PolarisForm::Tag::SearchField.new(@object_name, method, @template, objectify_options(options)).render
     end
 
-    def s_select(method, options = {}, &block)
-      @template.s_select_tag(@object_name, method, objectify_options(options), &block)
+    def s_select(method, choices = nil, options = {}, html_options = {}, &block)
+      PolarisForm::Tag::Select.new(@object_name, method, @template, choices, objectify_options(options), html_options).render(&block)
     end
 
-    def s_switch(method, options = {})
-      @template.s_switch_tag(@object_name, method, objectify_options(options))
+    def s_switch(method, options = {}, checked_value = '1', unchecked_value = '0')
+      PolarisForm::Tag::Switch.new(@object_name, method, @template, checked_value, unchecked_value, objectify_options(options)).render
     end
 
     def s_text_area(method, options = {})
-      @template.s_text_area_tag(@object_name, method, objectify_options(options))
+      PolarisForm::Tag::TextArea.new(@object_name, method, @template, objectify_options(options)).render
     end
 
     def s_text_field(method, options = {})
-      @template.s_text_field_tag(@object_name, method, objectify_options(options))
+      PolarisForm::Tag::TextField.new(@object_name, method, @template, objectify_options(options)).render
     end
 
     def s_url_field(method, options = {})
-      @template.s_url_field_tag(@object_name, method, objectify_options(options))
+      PolarisForm::Tag::UrlField.new(@object_name, method, @template, objectify_options(options)).render
     end
   end
 end
