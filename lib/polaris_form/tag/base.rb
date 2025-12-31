@@ -42,6 +42,10 @@ module PolarisForm
 
       def select_content_tag(option_tags, options, html_options)
         html_options = html_options.stringify_keys
+        if html_options["label"].blank?
+          html_options["label"] = " "
+          html_options["labelAccessibilityVisibility"] ||= "exclusive"
+        end
         add_default_name_and_id(html_options)
 
         if placeholder_required?(html_options)

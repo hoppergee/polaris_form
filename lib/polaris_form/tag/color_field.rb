@@ -5,6 +5,10 @@ module PolarisForm
         options = @options.stringify_keys
         options["value"] ||= validate_color_string(value)
         options["value"] = options.fetch("value") { value_before_type_cast }
+        if options["label"].blank?
+          options["label"] = " "
+          options["labelAccessibilityVisibility"] ||= "exclusive"
+        end
         add_default_name_and_id(options)
         empty_content_tag("s-color-field", options)
       end

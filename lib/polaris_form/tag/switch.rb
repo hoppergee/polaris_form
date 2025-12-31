@@ -22,6 +22,11 @@ module PolarisForm
           add_default_name_and_id(options)
         end
 
+        if options["label"].blank?
+          options["label"] = " "
+          options["labelAccessibilityVisibility"] ||= "exclusive"
+        end
+
         include_hidden = options.delete("include_hidden") { true }
         checkbox = empty_content_tag("s-switch", options)
 
