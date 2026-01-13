@@ -23,7 +23,7 @@ module PolarisForm
         end
 
         include_hidden = options.delete("include_hidden") { true }
-        checkbox = s_empty_content_tag("s-checkbox", options)
+        checkbox = empty_content_tag("s-checkbox", options)
 
         if include_hidden
           hidden = hidden_field_for_checkbox(options)
